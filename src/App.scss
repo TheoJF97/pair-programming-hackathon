@@ -1,0 +1,9 @@
+//link components' Sass styling
+@use "./components/Header/Header.scss" as *;
+
+//link any partials 
+
+
+.App {
+  text-align: center;
+}
