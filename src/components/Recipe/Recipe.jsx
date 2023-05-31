@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
-export default function Recipe() {
+import './Recipe.scss';
+export default function Recipe(recipe) {
   return (
     <div className="recipe">
       <Link to="/recipeId" className="recipe__link" >

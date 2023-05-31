@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Recipe from "../../components/Recipe/Recipe";
 
@@ -16,8 +18,9 @@ export default function HomePage() {
 
   const fetchRecipes = () => {
     axios
-      .get(`${serverUrl}/recipes?api_key=${apiKey}`)
+      .get(`${serverUrl}`)
       .then(({ data }) => {
+        // console.log(data.response)
         setRecipes(data);
       })
       .catch((error) => {
