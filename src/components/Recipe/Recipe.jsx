@@ -1,16 +1,30 @@
-import { Link } from "react-router-dom";
+export default function Recipe({ currentRecipe }) {
+  //array of strings
+  const ingredients = currentRecipe.ingredients;
 
-export default function Recipe({ recipe }) {
+  const instructions = currentRecipe.instructions;
+
   return (
-    <div className="recipes">
-      <Link to="/recipeId" className="recipe__link">
-        <img
-          src={recipe.imageSrc}
-          alt={recipe.name}
-          className="recipe__image"
-        />
-        <h2 className="recipe__name">{recipe.name}</h2>
-      </Link>
+    <div className="recipe context">
+      <h1 className="recipe__name">{currentRecipe.name}</h1>
+      <img
+        src={currentRecipe.imageSrc}
+        alt={currentRecipe.name}
+        className="recipe__image"
+      />
+      <h3 className="recipe__ingredients">Ingredients</h3>
+      <ul className="recipe__ingredients-list">
+        {ingredients.map((ingredient) => (
+          <li className="recipe__ingredient">{ingredient}</li>
+        ))}
+      </ul>
+
+      <h3 className="recipe__instructions">Instructions</h3>
+      <ul className="recipe__instructions-list">
+        {instructions.map((instruction) => (
+          <li className="recipe__instruction">{instruction}</li>
+        ))}
+      </ul>
     </div>
   );
 }

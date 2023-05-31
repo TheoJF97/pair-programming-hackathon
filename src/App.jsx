@@ -23,7 +23,6 @@ export default function App() {
     axios
       .get(`${serverUrl}/`)
       .then(({ data }) => {
-        console.log(data);
         setRecipes(data);
       })
       .catch((error) => {
@@ -34,8 +33,6 @@ export default function App() {
   if (recipes.length === 0) {
     return <h1>LOADING</h1>;
   }
-
-  console.log(recipes);
 
   return (
     <div className="App">

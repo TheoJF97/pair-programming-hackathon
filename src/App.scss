@@ -1,7 +1,6 @@
 //link components' Sass styling
 @use "./components/Header/Header.scss" as *;
-
-//link any partials 
+@use "./components/Recipe/Recipe.scss" as *;
 
 
 .App {
