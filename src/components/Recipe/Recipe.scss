@@ -7,4 +7,24 @@
   &__image {
     width: 50%;
   }
+
+  &__information {
+    display: flex;
+  }
+
+  &__ingredients {
+    width: 50%;
+
+    &-list {
+      list-style-type: none;
+    }
+  }
+
+  &__instructions {
+    width: 50%;
+
+    &-list {
+      text-align: left;
+    }
+  }
 }

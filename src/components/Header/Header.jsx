@@ -4,13 +4,10 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <h1 className="header__title">RECIPE BOOK!</h1>
+        <h1 className="header__title">Mom's Recipe Book </h1>
       </header>
 
-      {/* Aia's Code */}
-      <div className="context">
-       
-      </div>
+      <div className="context"></div>
       <div className="area">
         <ul className="circles">
           <li>food</li>
