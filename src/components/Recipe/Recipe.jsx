@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function Recipe() {
+export default function Recipe({ recipe }) {
   return (
-    <div className="recipe">
-      <Link to="/recipeId" className="recipe__link" >
+    <div className="recipes">
+      <Link to="/recipeId" className="recipe__link">
         <img
           src={recipe.imageSrc}
           alt={recipe.name}

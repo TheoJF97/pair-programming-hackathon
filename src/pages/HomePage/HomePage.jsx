@@ -1,41 +1,30 @@
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import Recipe from "../../components/Recipe/Recipe";
+// import Recipe from "../../components/Recipe/Recipe";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const { REACT_APP_SERVER_URL: serverUrl, REACT_APP_SERVER_API_KEY: apiKey } =
-  process.env;
+const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
 //The HomePage() will display all the images as clickable cards that will
 //  direct the user to the recipe's details (ingredients and recipes)
-export default function HomePage() {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetchRecipes();
-  }, []);
-
-  const fetchRecipes = () => {
-    axios
-      .get(`${serverUrl}/recipes?api_key=${apiKey}`)
-      .then(({ data }) => {
-        setRecipes(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
+export default function HomePage({ recipes }) {
   return (
     <>
       <Header />
       <div className="recipes">
-        {recipes.map((recipe) => {
-          <Recipe
-            key={recipe.id}
-            recipe={recipe}
-            fetchRecipes={fetchRecipes}
-          ></Recipe>;
-        })}
+        {recipes.map((recipe) => (
+          <div className="recipes__card">
+            <Link to={`/recipes/${recipe.id}`} className="recipe__link">
+              <img
+                src={recipe.imageSrc}
+                alt={recipe.name}
+                className="recipe__image"
+              />
+              <h2 className="recipe__name">{recipe.name}</h2>
+            </Link>
+          </div>
+        ))}
       </div>
     </>
   );
