@@ -12,7 +12,7 @@ export default function Recipe({ currentRecipe }) {
       <img
         src={currentRecipe.imageSrc}
         alt={currentRecipe.name}
-        className="recipe__image"
+        className="recipe__image2"
       />
       <h4 className="recipe__time">
         Preparation Time: {currentRecipe.preparationTime}
